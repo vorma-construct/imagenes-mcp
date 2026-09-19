@@ -44,5 +44,25 @@
    1.15,
    1.15
   ]
+ },
+ {
+  "id": "vorma-demo-viva",
+  "voces": [
+   "https://d8j0ntlcm91z4.cloudfront.net/user_3JVkNd1GnfKqGxO6OaFHjhkWtp2/hf_20260919_142155_6a61c07d-fb2a-4deb-adce-ccc0c3581f41.wav",
+   "https://d8j0ntlcm91z4.cloudfront.net/user_3JVkNd1GnfKqGxO6OaFHjhkWtp2/hf_20260919_142154_593c51df-deb1-413e-8f6f-7c929367514a.wav",
+   "https://d8j0ntlcm91z4.cloudfront.net/user_3JVkNd1GnfKqGxO6OaFHjhkWtp2/hf_20260919_142155_80a6d7f0-dd7a-4f6a-84c9-68fc8993e57e.wav",
+   "https://d8j0ntlcm91z4.cloudfront.net/user_3JVkNd1GnfKqGxO6OaFHjhkWtp2/hf_20260919_142154_c7c6341b-38e7-47a1-82a0-f41ce5d0fce3.wav",
+   "https://d8j0ntlcm91z4.cloudfront.net/user_3JVkNd1GnfKqGxO6OaFHjhkWtp2/hf_20260919_142154_81d6bdfb-0e90-4691-a38c-4c51f6f6e3de.wav"
+  ],
+  "musica": "musica-vorma.mp3",
+  "volumenMusica": 0.07,
+  "pausa": 0.35,
+  "velocidadPorVoz": [
+   1.28,
+   1.28,
+   1.28,
+   1.28,
+   1.28
+  ]
  }
 ]
