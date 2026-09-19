@@ -1,0 +1,28 @@
+[
+ {
+  "id": "vorma-demo",
+  "voces": [
+   "https://d8j0ntlcm91z4.cloudfront.net/user_3JVkNd1GnfKqGxO6OaFHjhkWtp2/hf_20260919_100149_e089d037-3420-4e6e-b0bb-cebfe9c22347.wav",
+   "https://d8j0ntlcm91z4.cloudfront.net/user_3JVkNd1GnfKqGxO6OaFHjhkWtp2/hf_20260919_100149_4400a5e8-5936-4d90-a999-32c631cd10d5.wav",
+   "https://d8j0ntlcm91z4.cloudfront.net/user_3JVkNd1GnfKqGxO6OaFHjhkWtp2/hf_20260919_100149_0c16a3eb-1b16-49e0-96b7-cbfc0ae3805c.wav",
+   "https://d8j0ntlcm91z4.cloudfront.net/user_3JVkNd1GnfKqGxO6OaFHjhkWtp2/hf_20260919_100149_9b626bf5-6deb-47fe-a30b-ad619770248f.wav",
+   "https://d8j0ntlcm91z4.cloudfront.net/user_3JVkNd1GnfKqGxO6OaFHjhkWtp2/hf_20260919_100149_adb740a3-2019-40e6-953a-dcd1f0535976.wav"
+  ],
+  "musica": "musica-vorma.mp3",
+  "volumenMusica": 0.28,
+  "pausa": 0.8
+ },
+ {
+  "id": "vorma-demo-anuncio",
+  "voces": [
+   "https://d8j0ntlcm91z4.cloudfront.net/user_3JVkNd1GnfKqGxO6OaFHjhkWtp2/hf_20260919_095806_dfdd2eef-b641-44fc-9420-45b2f491e8bf.mp3",
+   "https://d8j0ntlcm91z4.cloudfront.net/user_3JVkNd1GnfKqGxO6OaFHjhkWtp2/hf_20260919_095806_50e16bd8-a1d6-4aae-8001-2cf63831f000.mp3",
+   "https://d8j0ntlcm91z4.cloudfront.net/user_3JVkNd1GnfKqGxO6OaFHjhkWtp2/hf_20260919_095806_04ef3c2e-e8bd-4f44-b060-35e73a977def.mp3",
+   "https://d8j0ntlcm91z4.cloudfront.net/user_3JVkNd1GnfKqGxO6OaFHjhkWtp2/hf_20260919_095806_1a8e8481-e459-43b5-9893-08f8cb92823e.mp3",
+   "https://d8j0ntlcm91z4.cloudfront.net/user_3JVkNd1GnfKqGxO6OaFHjhkWtp2/hf_20260919_095806_11927ea9-35bf-4714-bb9e-2136b92a130a.mp3"
+  ],
+  "musica": "musica-vorma.mp3",
+  "volumenMusica": 0.28,
+  "pausa": 0.8
+ }
+]

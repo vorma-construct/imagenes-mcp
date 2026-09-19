@@ -4,6 +4,7 @@ import express from "express";
 import { z } from "zod";
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { StreamableHTTPServerTransport } from "@modelcontextprotocol/sdk/server/streamableHttp.js";
+import { prepararTodas, rutaMezcla } from "./mezclas.js";
 
 const BASE = process.env.BASE_IMAGENES || "https://image.pollinations.ai/prompt/";
 const CLAVE = process.env.CLAVE_POLLINATIONS || "";
@@ -123,6 +124,13 @@ app.use((req, res, next) => {
 
 app.get("/", (_req, res) => res.json({ ok: true, servidor: "imagenes", conectar_en: "/mcp" }));
 app.get("/salud", (_req, res) => res.json({ ok: true }));
+/* mezclas de audio ya preparadas: /mezcla/<id>.mp3 */
+app.get("/mezcla/:id.mp3", (req, res) => {
+  const f = rutaMezcla(req.params.id);
+  if (!f) return res.status(404).send("todavia no esta lista; vuelve a probar en un minuto");
+  res.set("Content-Type", "audio/mpeg"); res.set("Cache-Control", "no-store");
+  res.sendFile(f);
+});
 
 async function atender(req, res) {
   const servidor = nuevoServidor();
@@ -136,4 +144,4 @@ app.post("/mcp", atender);
 app.get("/mcp", (_req, res) => res.status(405).json({ error: "usa POST" }));
 
 const PUERTO = process.env.PORT || 3000;
-app.listen(PUERTO, () => console.log("servidor de imagenes escuchando en", PUERTO));
+app.listen(PUERTO, () => { console.log("servidor de imagenes escuchando en", PUERTO); prepararTodas().catch(e => console.error(e)); });
