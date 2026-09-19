@@ -124,6 +124,25 @@ app.use((req, res, next) => {
 
 app.get("/", (_req, res) => res.json({ ok: true, servidor: "imagenes", conectar_en: "/mcp" }));
 app.get("/salud", (_req, res) => res.json({ ok: true }));
+
+/* pagina con reproductor, para oir una mezcla desde el movil sin descargar nada */
+app.get("/escuchar/:id", (req, res) => {
+  const id = req.params.id.replace(/[^a-z0-9-]/gi, "");
+  const f = rutaMezcla(id);
+  if (!f) return res.status(404).send("Todavia no esta lista; vuelve a probar en un minuto.");
+  res.set("Content-Type", "text/html; charset=utf-8");
+  res.send(`<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Escuchar ${id}</title>
+<style>body{margin:0;background:#1c1f22;color:#fff;font-family:system-ui,sans-serif;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:100vh;gap:22px;padding:24px;text-align:center}
+h1{font-size:22px;margin:0}audio{width:100%;max-width:520px}a{color:#C99A2E;font-weight:700}
+button{background:#A87B18;color:#fff;border:0;border-radius:40px;padding:16px 28px;font-size:19px;font-weight:700}</style></head>
+<body><h1>${id}</h1>
+<button id="b" onclick="var a=document.getElementById('a');a.play();this.textContent='Sonando…'">▶ Escuchar</button>
+<audio id="a" controls preload="auto" src="/mezcla/${id}.mp3"></audio>
+<p><a href="/mezcla/${id}.mp3" download="${id}.mp3">Descargar el mp3</a></p>
+</body></html>`);
+});
+
 /* mezclas de audio ya preparadas: /mezcla/<id>.mp3 */
 app.get("/mezcla/:id.mp3", (req, res) => {
   const f = rutaMezcla(req.params.id);
