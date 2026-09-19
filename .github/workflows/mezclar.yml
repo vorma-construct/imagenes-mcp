@@ -1,0 +1,27 @@
+name: Mezclar audio
+on:
+  workflow_dispatch:
+  push:
+    paths: [ "mezclas.json", "musica-vorma.mp3", "mezclas.js" ]
+jobs:
+  mezclar:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: "22" }
+      - run: npm ci --omit=dev || npm install --omit=dev
+      - name: Preparar mezclas
+        run: |
+          node -e "
+          import('./mezclas.js').then(async m=>{ await m.prepararTodas(); }).catch(e=>{console.error(e);process.exit(1)});
+          "
+          ls -la salida
+      - name: Guardar resultado
+        run: |
+          mkdir -p mezclas-listas && cp salida/*.mp3 mezclas-listas/
+          git config user.name "mezclador" && git config user.email "mezclador@users.noreply.github.com"
+          git add mezclas-listas && git commit -m "Mezclas de audio listas" || echo "sin cambios"
+          git push
