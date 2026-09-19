@@ -32,7 +32,8 @@ export async function prepararMezcla(m) {
     const f = path.join(tmp, "bajada" + i + (path.extname(new URL(m.voces[i]).pathname) || ".bin"));
     await bajar(m.voces[i], f);
     const wav = path.join(tmp, "voz" + i + ".wav");
-    await ffmpeg(["-i", f, "-ac", "2", "-ar", "44100", wav]);
+    const velI = (m.velocidadPorVoz && m.velocidadPorVoz[i]) || null;
+    await ffmpeg(["-i", f, ...(velI ? ["-af", "atempo=" + velI] : []), "-ac", "2", "-ar", "44100", wav]);
     voces.push(wav);
   }
   // silencio entre frases
