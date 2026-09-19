@@ -24,5 +24,18 @@
   "musica": "musica-vorma.mp3",
   "volumenMusica": 0.28,
   "pausa": 0.8
+ },
+ {
+  "id": "vorma-demo-energia",
+  "voces": [
+   "https://d8j0ntlcm91z4.cloudfront.net/user_3JVkNd1GnfKqGxO6OaFHjhkWtp2/hf_20260919_133407_f923ed64-58e9-4fb5-bc42-338b665eb9a4.wav",
+   "https://d8j0ntlcm91z4.cloudfront.net/user_3JVkNd1GnfKqGxO6OaFHjhkWtp2/hf_20260919_133407_909b703b-f8e3-403a-a9f5-55bf5b367540.wav",
+   "https://d8j0ntlcm91z4.cloudfront.net/user_3JVkNd1GnfKqGxO6OaFHjhkWtp2/hf_20260919_133407_96e3d6ed-646f-4c43-bf7f-0d5a31f7dc2f.wav",
+   "https://d8j0ntlcm91z4.cloudfront.net/user_3JVkNd1GnfKqGxO6OaFHjhkWtp2/hf_20260919_133407_091bb375-960e-4465-9be1-ff3310706b93.wav",
+   "https://d8j0ntlcm91z4.cloudfront.net/user_3JVkNd1GnfKqGxO6OaFHjhkWtp2/hf_20260919_133407_bd8b3e76-0042-4802-9a04-ed01f46e0cb6.wav"
+  ],
+  "musica": "musica-vorma.mp3",
+  "volumenMusica": 0.3,
+  "pausa": 0.5
  }
 ]
