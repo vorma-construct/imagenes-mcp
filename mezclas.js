@@ -55,7 +55,7 @@ export async function prepararMezcla(m) {
   await ffmpeg([
     "-i", vozTotal, "-stream_loop", "-1", "-i", musica,
     "-filter_complex",
-    `[1:a]volume=${vol},afade=t=in:st=0:d=1[m];[0:a]apad=pad_dur=1.5[v];[v][m]amix=inputs=2:duration=first:dropout_transition=2:normalize=0[out]`,
+    `[1:a]volume=${vol},afade=t=in:st=0:d=1[m];[0:a]${m.velocidadVoz ? `atempo=${m.velocidadVoz},` : ""}apad=pad_dur=1.5[v];[v][m]amix=inputs=2:duration=first:dropout_transition=2:normalize=0[out]`,
     "-map", "[out]", "-c:a", "libmp3lame", "-b:a", "160k", salida
   ]);
   fs.rmSync(tmp, { recursive: true, force: true });
