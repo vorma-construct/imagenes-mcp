@@ -21,7 +21,7 @@ jobs:
           ls -la salida
       - name: Guardar resultado
         run: |
-          mkdir -p mezclas-listas && cp salida/*.mp3 mezclas-listas/
+          mkdir -p mezclas-listas && cp salida/*.mp3 salida/*.json mezclas-listas/
           git config user.name "mezclador" && git config user.email "mezclador@users.noreply.github.com"
           git add mezclas-listas && git commit -m "Mezclas de audio listas" || echo "sin cambios"
           git push

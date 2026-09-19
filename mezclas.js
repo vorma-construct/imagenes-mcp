@@ -36,6 +36,14 @@ export async function prepararMezcla(m) {
     await ffmpeg(["-i", f, ...(velI ? ["-af", "atempo=" + velI] : []), "-ac", "2", "-ar", "44100", wav]);
     voces.push(wav);
   }
+  // tiempos de inicio de cada frase dentro de la mezcla
+  const tiempos = []; let t = 0;
+  for (const v of voces) {
+    tiempos.push(Math.round(t * 100) / 100);
+    const seg = (fs.statSync(v).size - 44) / (44100 * 4);
+    t += seg + (m.pausa || 0.7);
+  }
+  fs.writeFileSync(path.join(DIR, m.id + ".json"), JSON.stringify({ tiempos, duracion: Math.round((t - (m.pausa || 0.7) + 1.5) * 100) / 100 }));
   // silencio entre frases
   const pausa = path.join(tmp, "pausa.wav");
   await ffmpeg(["-f", "lavfi", "-i", "anullsrc=r=44100:cl=stereo", "-t", String(m.pausa || 0.7), pausa]);
