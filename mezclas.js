@@ -33,7 +33,9 @@ export async function prepararMezcla(m) {
     await bajar(m.voces[i], f);
     const wav = path.join(tmp, "voz" + i + ".wav");
     const velI = (m.velocidadPorVoz && m.velocidadPorVoz[i]) || null;
-    await ffmpeg(["-i", f, ...(velI ? ["-af", "atempo=" + velI] : []), "-ac", "2", "-ar", "44100", wav]);
+    const dbI = (m.gananciaPorVoz && m.gananciaPorVoz[i]) || 0;
+    const filtros = [velI ? "atempo=" + velI : null, dbI ? "volume=" + dbI + "dB" : null].filter(Boolean).join(",");
+    await ffmpeg(["-i", f, ...(filtros ? ["-af", filtros] : []), "-ac", "2", "-ar", "44100", wav]);
     voces.push(wav);
   }
   // tiempos de inicio de cada frase dentro de la mezcla
